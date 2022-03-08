@@ -31,4 +31,27 @@ public class KlausurTest {
         assertThat(klausur.getBis()).isEqualTo(LocalDateTime.of(2022, 03, 12, 12, 15));
     }
 
+
+
+    @Test
+    @DisplayName("Rechtzeitige Stornierung einer Klausur")
+    void test_3() {
+        LocalDateTime von = LocalDateTime.of(2022, 03, 12, 9, 15);
+        LocalDateTime bis = LocalDateTime.of(2022, 03, 12, 10, 15);
+        LocalDateTime now = LocalDateTime.of(2022, 03, 7, 10, 15);
+        Klausur klausur = new Klausur(1L,"Matching",125879,
+                false, von, bis);
+        assertThat(klausur.istKlausurStornierbar(now)).isTrue();
+    }
+
+    @Test
+    @DisplayName("spätere Stornierung einer Klausur")
+    void test_4() {
+        LocalDateTime von = LocalDateTime.of(2022, 03, 12, 9, 15);
+        LocalDateTime bis = LocalDateTime.of(2022, 03, 12, 10, 15);
+        LocalDateTime now = LocalDateTime.of(2022, 03, 12, 8, 15);
+        Klausur klausur = new Klausur(1L,"Matching",125879,
+                false, von, bis);
+        assertThat(klausur.istKlausurStornierbar(now)).isFalse();
+    }
 }
