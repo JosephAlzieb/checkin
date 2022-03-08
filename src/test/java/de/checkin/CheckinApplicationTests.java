@@ -1,4 +1,4 @@
-package de.checkin.checkin;
+package de.checkin;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
