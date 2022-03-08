@@ -12,4 +12,4 @@ jobs:
         with:
           java-version: 17
       - name: Run Tests
-        run: gradlew check
+        run: gradle check
