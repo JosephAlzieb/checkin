@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.6.4'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id "com.github.spotbugs" version "4.7.9"
 }
 
 group = 'de.checkin'
@@ -12,6 +13,19 @@ repositories {
     mavenCentral()
 }
 
+spotbugs {
+    effort = "max"
+}
+
+spotbugsMain {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+        ignoreFailures = true
+    }
+}
+
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
@@ -21,6 +35,7 @@ dependencies {
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.assertj:assertj-core:3.22.0'
+    compileOnly 'com.github.spotbugs:spotbugs-annotations:4.1.4'
 }
 
 tasks.named('test') {
