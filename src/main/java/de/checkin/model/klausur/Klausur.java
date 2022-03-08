@@ -28,4 +28,19 @@ public class Klausur {
             this.bis = bis.plusMinutes(120);
         }
     }
+
+    public LocalDateTime getVon() {
+        return von;
+    }
+
+    public LocalDateTime getBis() {
+        return bis;
+    }
+
+    public boolean istKlausurStornierbar(LocalDateTime datum) {
+        if(datum.isBefore(this.von.minusDays(1L))) {
+            return true;
+        }
+        return false;
+    }
 }
