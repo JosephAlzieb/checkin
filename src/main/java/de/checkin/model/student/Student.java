@@ -2,6 +2,7 @@ package de.checkin.model.student;
 
 import java.time.LocalTime;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Student {
@@ -20,4 +21,47 @@ public class Student {
         this.klausuren = new HashSet<>();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Student student)) return false;
+        return studentId.equals(student.studentId) && githubname.equals(student.githubname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(studentId, githubname);
+    }
+
+    public Long getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
+    }
+
+    public String getGithubname() {
+        return githubname;
+    }
+
+    public void setGithubname(String githubname) {
+        this.githubname = githubname;
+    }
+
+    public Set<Urlaub> getUrlaubs() {
+        return urlaubs;
+    }
+
+    public void setUrlaubs(Set<Urlaub> urlaubs) {
+        this.urlaubs = urlaubs;
+    }
+
+    public Set<Long> getKlausuren() {
+        return klausuren;
+    }
+
+    public void setKlausuren(Set<Long> klausuren) {
+        this.klausuren = klausuren;
+    }
 }
