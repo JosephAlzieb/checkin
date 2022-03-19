@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <a href="/oauth2/authorization/github">Login using GitHub</a>
+    <div th:if="${user}">
+        <a href="/uebersicht">Zur uebersichtSeite</a>
+    </div>
+
+    <br>
+
+    <div class="row m-3">
+        <form th:action="@{/logout}" method="post">
+            <button class="btn btn-dark" type="submit">Logout</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
