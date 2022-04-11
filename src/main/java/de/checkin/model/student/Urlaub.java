@@ -6,9 +6,9 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 class Urlaub {
-    LocalDate tag;
-    LocalTime von;
-    LocalTime bis;
+    private final LocalDate tag;
+    private final LocalTime von;
+    private final LocalTime bis;
 
     public Urlaub(LocalDate tag, LocalTime von, LocalTime bis) {
         this.tag = tag;
