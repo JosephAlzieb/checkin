@@ -61,7 +61,7 @@ public class StudentRepoImpl implements StudentRepository {
     studentDto.setUrlaube(urlaubDtos);
     Set<StudentKlausurDto> studentKlausurDtos = student.getKlausurIds().stream()
         .map(StudentKlausurDto::new).collect(Collectors.toSet());
-    studentDto.setKlausuren(studentKlausurDtos);
+    studentKlausurDtos.forEach(klausur -> studentDto.addKlausuren(klausur));
     repoDao.save(studentDto);
   }
 

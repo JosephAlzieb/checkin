@@ -55,8 +55,8 @@ public final class StudentDto {
     return klausuren;
   }
 
-  public void setKlausuren(Set<StudentKlausurDto> klausuren) {
-    this.klausuren = klausuren;
+  public void addKlausuren(StudentKlausurDto klausur) {
+    klausuren.add(klausur);
   }
 
   @Override
