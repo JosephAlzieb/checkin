@@ -9,12 +9,12 @@
           crossorigin="anonymous">
 </head>
 <body>
-<div class="container pt-5">
+<div class="container">
     <h1>Übersicht: Freistellungen</h1>
 
     <h2>Urlaubszeiten</h2>
     <table id="urlaub_table" class="table mb-5">
-        <thead class="table-dark">
+        <thead>
         <tr>
             <th>Datum</th>
             <th>von</th>
@@ -25,15 +25,18 @@
         </tr>
         </thead>
         <tbody>
-        <div th:if="${!student.getUrlaubs().isEmpty()}">
-            <tr th:each="urlaub: ${student.getUrlaubs()}">
-                <td th:text="${urlaub.tag}"></td>
-                <td th:text="${urlaub.von}"></td>
-                <td th:text="${urlaub.bis}"></td>
-                <td th:text="${urlaub.difference()}"></td>
-                <td th:if="${urlaub.isUrlaubStornierbarNew()}">
+        <div th:if="${!student.getUrlaube().isEmpty()}">
+            <tr th:each="urlaub: ${student.getUrlaube()}">
+                <td th:text="${urlaub.tag}" th:aria-label=" 'Urlaubstag' + ${urlaub.tag}">Datum</td>
+                <td th:text="${urlaub.von}" th:aria-label="'Urlaub von' + ${urlaub.von}">von</td>
+                <td th:text="${urlaub.bis}" th:aria-label="'Urlaub bis' + ${urlaub.bis}">bis</td>
+                <td th:text="${urlaub.urlaubsDauerBerechnen()}">Zeit</td>
+                <td th:if="${urlaub.isUrlaubStornierbar()}">
                     <form method="post" th:action="@{'/delete_Urlaub/' + ${urlaub.tag} +'/' + ${urlaub.von}}">
-                        <button class="btn btn-danger" type="submit">Stornieren</button></form>
+                        <button class="btn btn-danger" type="submit"
+                                th:aria-label="'Stornieren ' + ${urlaub.tag}">Stornieren
+                        </button>
+                    </form>
                 </td>
             </tr>
         </div>
@@ -43,7 +46,7 @@
             <td><strong>Summe</strong></td>
             <td></td>
             <td></td>
-            <td th:text="${student.berechneGesamteUrlaube()}"><strong>0</strong></td>
+            <td th:text="${student.gesamteUrlaubeBerechnen()}"><strong>0</strong></td>
             <td></td>
         </tr>
         <tr>
@@ -56,9 +59,10 @@
         </tfoot>
     </table>
     <h2 id="klausur">Klausuren</h2>
-    <p th:if="${student.getKlausuren().isEmpty()}" class="alert alert-success">Sie sind für keine Klausuren angemeldet.</p>
-    <table th:unless="${student.getKlausuren().isEmpty()}" id="klausur_table" class="table mb-5">
-        <thead class="table-dark">
+    <p th:if="${student.getKlausurIds().isEmpty()}" class="alert alert-success">Sie sind für keine
+        Klausuren angemeldet.</p>
+    <table th:unless="${student.getKlausurIds().isEmpty()}" id="klausur_table" class="table mb-5">
+        <thead>
         <tr>
             <th>Veranstaltung und Klausurzeit</th>
             <th>Online/Präsenz</th>
@@ -68,12 +72,18 @@
         </tr>
         </thead>
         <tbody>
-        <div >
+        <div>
             <tr th:each="klausur: ${klausuren}">
-                <td th:text="${klausur.toString()}"></td>
-                <td th:text="${klausur.isOnline} ? 'Online' : 'Presänz'" ></td>
-                <td th:text="${klausur.freistellungToString()}"></td>
-                <td><form method="post" th:action="@{'/delete_Klausur/' + ${klausur.getKlausurId()}}"><button class="btn btn-danger" type="submit">Stornieren</button></form></td>
+                <td th:text="${klausur.toString()}">Veranstaltung und Klausurzeit</td>
+                <td th:text="${klausur.isOnline} ? 'Online' : 'Presänz'">Online/Präsenz</td>
+                <td th:text="${klausur.freistellungToString()} ">Freistellung vom Praktikum</td>
+                <td th:if="${klausur.stornierbar()}">
+                    <form method="post" th:action="@{'/delete_Klausur/' + ${klausur.getKlausurId()}}">
+                        <button class="btn btn-danger" type="submit"
+                                th:aria-label="'Stornieren' + ${klausur.toString()}">Stornieren
+                        </button>
+                    </form>
+                </td>
             </tr>
         </div>
         </tbody>
@@ -81,12 +91,12 @@
 
     <div class="text-center pt-5">
         <a href="/urlaubanmeldung">
-            <button class="btn btn-primary btn-lg">Urlaub anmelden</button>
+            <button class="btn btn-primary btn-lg" aria-label="Urlaub anmelden">Urlaub anmelden</button>
         </a>
         <a href="/klausuranmeldung">
-            <button class="btn btn-success btn-lg">Klausur anmelden</button>
+            <button class="btn btn-success btn-lg" aria-label="Klausur anmelden">Klausur anmelden</button>
         </a>
     </div>
 </div>
-    </body>
+</body>
 </html>

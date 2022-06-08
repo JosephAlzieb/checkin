@@ -10,7 +10,7 @@
 
 </head>
 <body>
-<div class="container pt-5">
+<div class="container">
 
     <h1>Neue Klausur eintragen</h1>
 
@@ -18,53 +18,64 @@
 
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="veranstaltungsName" name="veranstaltungsName" required>
+            <input type="text" class="form-control" id="veranstaltungsName" name="veranstaltungsName"
+                   placeholder="Name der Veranstaltung" required>
             <label for="veranstaltungsName">Name der Veranstaltung</label>
 
         </div>
 
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="veranstaltungsId" name="veranstaltungsId" required>
+            <input type="text" class="form-control" id="veranstaltungsId" name="veranstaltungsId"
+                   placeholder="ID der Veranstaltung im LSF" required>
             <label for="veranstaltungsId" class="form-label">ID der Veranstaltung im LSF</label>
 
             <div class="form-text">Sie finden die LSF Veranstaltungs-ID im <a
-                    href="https://lsf.hhu.de/qisserver/rds?state=wtree&search=1&category=veranstaltung.browse&navigationPosition=lectures%2Clectureindex&breadcrumb=lectureindex&topitem=lectures&subitem=lectureindex"
-                    target="_blank">LSF</a>.
+                href="https://lsf.hhu.de/qisserver/rds?state=wtree&search=1&category=veranstaltung.browse&navigationPosition=lectures%2Clectureindex&breadcrumb=lectureindex&topitem=lectures&subitem=lectureindex"
+                target="_blank" aria-label="Hier klicken um LSF VeranstaltungsID zu finden">LSF</a>.
             </div>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="online" checked="checked" name="isOnline" value="true"><input type="hidden" value="true" name="_isOnline"/>
+            <input class="form-check-input" type="checkbox" id="online" checked="checked" name="isOnline"
+                   value="true"><input type="hidden" value="true" name="_isOnline"/>
             <label class="form-check-label" for="online">
                 Die Klausur findet Online statt.
             </label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="date" class="form-control" id="tag" name="tag" required>
+            <input type="date" class="form-control" id="tag" name="tag" aria-label="Datum der Klausur"
+                   required>
             <label for="tag" class="form-label">Datum der Klausur (dd.mm.yyyy)</label>
 
         </div>
 
         <div class="form-floating mb-3">
-            <input type="time" class="form-control" id="von" name="von" required>
+            <input type="time" class="form-control" id="von" name="von"
+                   aria-label="Uhrzeit des Klausurbeginnns " required>
             <label for="von" class="form-label">Uhrzeit des Klausurbeginnns (hh:mm)</label>
 
         </div>
 
 
         <div class="form-floating mb-3">
-            <input type="time" class="form-control" id="bis" name="bis" required>
+            <input type="time" class="form-control" id="bis" name="bis"
+                   aria-label="Uhrzeit des Klausurendes" required>
             <label for="bis" class="form-label">Uhrzeit des Klausurendes (hh:mm)</label>
-            <div class="form-text">Runden Sie die Zeit auf die nächste vorgegebene Zeit auf. Falls die Klausur nach 13:30 Uhr endet, tragen Sie bitte 13:30 Uhr ein.
+            <div class="form-text">Runden Sie die Zeit auf die nächste vorgegebene Zeit auf. Falls die
+                Klausur nach 13:30 Uhr endet, tragen Sie bitte 13:30 Uhr ein.
             </div>
 
         </div>
-
-        <div class="d-grid gap-2">
-        <button name="submitbtn" class="btn btn-primary btn-lg" type="submit">Eintragen</button>
+        <div th:if="${nachrichten} != null " th:text="${nachrichten.get(0)}" class="alert alert-danger"
+             role="alert">
+            A simple danger alert—check it out!
         </div>
+        <button name="submitbtn" class="btn btn-primary" type="submit"
+                aria-label="Klausuranmeldung-abschicken">Eintragen
+        </button>
     </form>
+    <hr class="mt-5 mb-5">
 
 </div>
 </body>
