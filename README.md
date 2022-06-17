@@ -1,1 +1,89 @@
-# checkin
+= Softwareentwicklung im Team
+
+== Was ist chicken ?
+
+Eine Webanwendung, die den Studierenden ermöglicht, ihre geplante Fehlzeiten während eines Praktikums mit anwesenheitspflicht einzutragen.
+
+___
+
+== Installation und Anwendung:
+- Zuerst muss das Programm von Github aus gecloned werden
+
+`git clone git@github.com:hhu-propra2/praktikum-gruppe-23.git`
+
+- Dann in das richtige Verzeichnis gehen
+
+`cd praktikum-gruppe-23/`
+
+- Die Anwenung ist als dockercontainer vorliegend, und dieser kann gestartet werden durch den Befehl:
+
+`docker-compose up`
+
+- Die Webanwendung kann nun über den Port: 8080 aufgerufen werden.
+
+`localhost:8080/`
+
+___
+
+== Termin
+Das Praktikum findet in der Zeit vom 07.03.2022 bis 25.03.2022 statt. Täglich von 09:30 bis 13:30
+
+[IMPORTANT]
+====
+Um die Anwendung im Browser zu testen müsste man als erstes die Endzeit des Praktikums konfigurieren bzw. verlängern.
+Diese findet man in der Klasse src/main/java/de/chicken/domain/Validierung.java.
+====
+___
+
+== Hinweise zur Dokumentation
+
+<<<
+// 1. Einfuehrung und Ziele
+- link:arc42/src/01-Einfuehrung-und-Ziele.adoc[]
+
+<<<
+// 2. Randbedingungen
+- link:arc42/src/02-Randbedingungen.adoc[]
+
+<<<
+// 3. Kontextabgrenzung
+- link:arc42/src/03-Kontextabgrenzung.adoc[]
+
+<<<
+// 4. Lösungsstrategie
+- link:arc42/src/04-Loesungsstrategie.adoc[]
+
+<<<
+// 5. Bausteinsicht
+- link:arc42/src/05-Bausteinsicht.adoc[]
+
+<<<
+// 6. Laufzeitsicht
+- link:arc42/src/06-Laufzeitsicht.adoc[]
+
+<<<
+// 7. Verteilungssicht
+- link:arc42/src/07-Verteilungssicht.adoc[]
+
+<<<
+// 8.  Konzepte
+- link:arc42/src/08-Querschnittliche-Konzepte-und-Muster.adoc[]
+
+<<<
+// 9. Entwurfsentscheidungen
+- link:arc42/src/09-Entwurfsentscheidungen.adoc[]
+
+<<<
+// 10. Qualitätsszenarien
+- link:arc42/src/10-Qualitaetsszenarien.adoc[]
+
+<<<
+// 11. Risiken
+- link:arc42/src/11-Risiken.adoc[]
+
+___
+
+== vollständige Dokumentation
+
+- link:arc42/arc42-template.adoc[]
+
