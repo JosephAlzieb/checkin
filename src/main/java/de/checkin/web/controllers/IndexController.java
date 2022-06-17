@@ -10,7 +10,6 @@ import de.checkin.domain.student.Student;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
-
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -34,8 +33,8 @@ public class IndexController {
   }
 
   /**
-   * Hier wird die Login-Seite angezeigt, wenn amn noch nicht angemeldet ist,
-   * sonst wird die Übersicht-Seite angezeigt
+   * Hier wird die Login-Seite angezeigt, wenn amn noch nicht angemeldet ist, sonst wird die
+   * Übersicht-Seite angezeigt
    */
   @GetMapping("/")
   public String getLogin(Model model, @AuthenticationPrincipal OAuth2User principal) {

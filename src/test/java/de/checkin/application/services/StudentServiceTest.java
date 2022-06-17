@@ -581,7 +581,7 @@ public class StudentServiceTest {
       + "K1 11:00-11:30, F1 10:30-11:30, K2 12:30-13:00, F2 12:00-13:00, U 9:30-13:30 "
       + "--> erwartet: 9:30-10:30 und 11:30-12:00 und 13-13:30")
   void test_34() {
-    Student student = new Student(2L,"githubname", lw);
+    Student student = new Student(2L, "githubname", lw);
     LocalDate tag = START_TAG.plusDays(2);
     LocalTime vonK1 = START_ZEIT.plusHours(1).plusMinutes(30);
     LocalTime bisK1 = vonK1.plusMinutes(30);
@@ -610,7 +610,7 @@ public class StudentServiceTest {
       + "K1 11:00-11:30, F1 10:30-11:30, K2 12:30-13:00, F2 12:00-13:00, U 10:00-13:30 " +
       "--> erwartet: 10-10:30 und 11:30-12:00 und 13-13:30")
   void test_35() {
-    Student student = new Student(2L,"githubname", lw);
+    Student student = new Student(2L, "githubname", lw);
     LocalDate tag = START_TAG.plusDays(2);
     LocalTime vonK1 = START_ZEIT.plusHours(1).plusMinutes(30);
     LocalTime bisK1 = vonK1.plusMinutes(30);
@@ -640,7 +640,7 @@ public class StudentServiceTest {
       + "K1 11:00-11:30, F1 10:30-11:30, K2 12:30-13:00, F2 12:00-13:00, U 11:45-12:45 " +
       "--> erwartet: 11:45-12")
   void test_36() {
-    Student student = new Student(2L,"githubname", lw);
+    Student student = new Student(2L, "githubname", lw);
     LocalDate tag = START_TAG.plusDays(2);
     LocalTime vonK1 = START_ZEIT.plusHours(1).plusMinutes(30);
     LocalTime bisK1 = vonK1.plusMinutes(30);
@@ -668,7 +668,7 @@ public class StudentServiceTest {
       + " und endet vor anderer Klausur. K1 11:00-11:30, F1 10:30-11:30, K2 12:30-13:00, "
       + "F2 12:00-13:00, U 10-12:30 --> erwartet: 10-10:30 und 11:30-12")
   void test_37() {
-    Student student = new Student(2L,"githubname", lw);
+    Student student = new Student(2L, "githubname", lw);
     LocalDate tag = START_TAG.plusDays(2);
     LocalTime vonK1 = START_ZEIT.plusHours(1).plusMinutes(30);
     LocalTime bisK1 = vonK1.plusMinutes(30);
@@ -698,7 +698,7 @@ public class StudentServiceTest {
       + "K1 10:00-10:30, F1 9:30-10:30, K2 12:45-13:00, F2 12:15-13:00, U 9:30-13:30 --> erwartet: "
       + "10:30-12:15 und 13-13:30")
   void test_38() {
-    Student student = new Student(2L,"githubname", lw);
+    Student student = new Student(2L, "githubname", lw);
     LocalDate tag = START_TAG.plusDays(2);
     LocalTime vonK1 = START_ZEIT.plusMinutes(30);
     LocalTime bisK1 = vonK1.plusMinutes(30);
@@ -720,6 +720,7 @@ public class StudentServiceTest {
     assertThat(student.getRestUrlaub()).isEqualTo(105);
     assertThat(student.getUrlaube()).contains(urlaub1, urlaub2);
   }
+
   @Test
   @DisplayName("Aufteilung eines Urlaubs wenn es 2 Klausuren gibt, Urlaub startet vor einer Klausur"
       + "und endet vor anderer Klausur. K1 10:00-10:30, F1 9:30-10:30, K2 12:45-13:00, "

@@ -14,6 +14,7 @@ public class AuditLogService {
 
   /**
    * Die Methode speichert ein AuditLog
+   *
    * @param auditLog
    */
   public void save(AuditLog auditLog) {

@@ -16,7 +16,7 @@ public enum Nachricht {
   VON_HINTER_BIS("Das Ende des Urlaubs muss hinter dem Anfang liegen"),
   RESTURLAUB("Das Ende des Urlaubs muss hinter dem Anfang liegen"),
   URLAUB_VERGANGENHEIT("Urlaub sollte in Zukunft liegen"),
-  URLAUB_AN_DEM_SELBEN_TAG( "Sie können Urlaube nur für die Folgetage anmelden." +
+  URLAUB_AN_DEM_SELBEN_TAG("Sie können Urlaube nur für die Folgetage anmelden." +
       "Bitte melden Sie sich bei den Tutor:innen oder Organisator:innen," +
       "wenn Sie heute noch Urlaub benötigen oder Urlaub nachmelden wollen."),
   ENDE_PRAKTIKUMSTAG("Das Datum ist nach dem letzten Praktikumstag am " + END_TAG),
@@ -33,7 +33,7 @@ public enum Nachricht {
   private final String nachricht;
 
   Nachricht(String nachricht) {
-    this.nachricht= nachricht;
+    this.nachricht = nachricht;
   }
 
   public String getNachricht() {

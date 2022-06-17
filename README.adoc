@@ -7,6 +7,7 @@ Eine Webanwendung, die den Studierenden ermöglicht, ihre geplante Fehlzeiten w�
 ___
 
 == Installation und Anwendung:
+
 - Zuerst muss das Programm von Github aus gecloned werden
 
 `git clone git@github.com:hhu-propra2/praktikum-gruppe-23.git`
@@ -26,13 +27,16 @@ ___
 ___
 
 == Termin
-Das Praktikum findet in der Zeit vom 07.03.2022 bis 25.03.2022 statt. Täglich von 09:30 bis 13:30
+
+Das Praktikum findet in der Zeit vom 07.03.2022 bis 25.03.2022 statt.
+Täglich von 09:30 bis 13:30
 
 [IMPORTANT]
 ====
 Um die Anwendung im Browser zu testen müsste man als erstes die Endzeit des Praktikums konfigurieren bzw. verlängern.
 Diese findet man in der Klasse src/main/java/de/chicken/domain/Validierung.java.
 ====
+
 ___
 
 == Hinweise zur Dokumentation

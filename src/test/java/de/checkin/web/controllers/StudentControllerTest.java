@@ -140,15 +140,15 @@ public class StudentControllerTest {
       + "redirect:/uebersicht wird durchgefuehrt")
   void test_7() throws Exception {
     when(studentService.createUrlaub("githubname",
-        LocalDate.of(2022,3, 25),
+        LocalDate.of(2022, 3, 25),
         LocalTime.of(10, 30), LocalTime.of(11, 30))).thenReturn(false);
 
     mockMvc.perform(post("/urlaubanmeldung")
-        .with(csrf())
-        .with(oauth2Login().oauth2User(oAuth2User))
-        .param("tag", "2022-03-25")
-        .param("von", "10:30")
-        .param("bis", "11:30"))
+            .with(csrf())
+            .with(oauth2Login().oauth2User(oAuth2User))
+            .param("tag", "2022-03-25")
+            .param("von", "10:30")
+            .param("bis", "11:30"))
         .andExpect(view().name("redirect:/urlaubanmeldung"))
         .andExpect(status().is3xxRedirection());
   }
@@ -159,8 +159,8 @@ public class StudentControllerTest {
     mockMvc.perform(post("/klausuranmeldung")
             .with(csrf())
             .with(oauth2Login().oauth2User(oAuth2User)))
-            .andExpect(view().name("redirect:/klausuranmeldung"))
-            .andExpect(status().is3xxRedirection());
+        .andExpect(view().name("redirect:/klausuranmeldung"))
+        .andExpect(status().is3xxRedirection());
 
   }
 }

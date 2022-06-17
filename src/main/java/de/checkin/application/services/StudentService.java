@@ -65,14 +65,16 @@ public class StudentService {
       nachrichten.addAll(student.getNachrichten());
     }
 
-    List<Klausur> sortedKlausuren = klausuren.stream().sorted(Comparator.comparing(Klausur::getFreiStellungVon)).collect(Collectors.toList());
+    List<Klausur> sortedKlausuren = klausuren.stream()
+        .sorted(Comparator.comparing(Klausur::getFreiStellungVon)).collect(Collectors.toList());
     if (!klausuren.isEmpty()) {
       urlaubBlockeErstellen(tag, von, bis, student, sortedKlausuren);
     }
 
     if (!student.getUrlaube().isEmpty()) {
       studentRepository.save(student);
-      auditLogRepository.save(new AuditLog(null, githubname, Type.URLAUB_ANMELDUNG, LocalDate.now(), LocalTime.now()));
+      auditLogRepository.save(
+          new AuditLog(null, githubname, Type.URLAUB_ANMELDUNG, LocalDate.now(), LocalTime.now()));
       return true;
     }
 
@@ -105,9 +107,10 @@ public class StudentService {
   }
 
   /**
-   * Wenn man sich für eine Klausur an dem Tag anmeldet, an dem man auch Urlaube buchen möchte.
-   * Dann regetlt die Methode alles, so dass die Zeit von Rest-Urlaub nicht abgezogen wird,
-   * wenn man wegen einer Klausur freigestellt ist
+   * Wenn man sich für eine Klausur an dem Tag anmeldet, an dem man auch Urlaube buchen möchte. Dann
+   * regetlt die Methode alles, so dass die Zeit von Rest-Urlaub nicht abgezogen wird, wenn man
+   * wegen einer Klausur freigestellt ist
+   *
    * @param tag
    * @param von
    * @param bis
@@ -115,11 +118,13 @@ public class StudentService {
    * @param klausur
    * @return
    */
-  private LocalTime urlaubMitKlausurAufteilen(LocalDate tag, LocalTime von, LocalTime bis, Student student,
+  private LocalTime urlaubMitKlausurAufteilen(LocalDate tag, LocalTime von, LocalTime bis,
+      Student student,
       Klausur klausur) {
 
     if (!((klausur.getFreiStellungVon().isBefore(von) || klausur.getFreiStellungVon().equals(von))
-        && (klausur.getFreiStellungBis().isAfter(bis) || klausur.getFreiStellungBis().equals(bis)))) {
+        && (klausur.getFreiStellungBis().isAfter(bis) || klausur.getFreiStellungBis()
+        .equals(bis)))) {
 
       if (((klausur.getFreiStellungVon().isAfter(von) || klausur.getFreiStellungVon().equals(von))
           && !klausur.getFreiStellungBis().isBefore(bis))) {
@@ -161,7 +166,9 @@ public class StudentService {
   }
 
   /**
-   * Die Methode löscht einen Urlaub für einen Student anhand von dem Tag, und der Startzeit von dem Urlaub
+   * Die Methode löscht einen Urlaub für einen Student anhand von dem Tag, und der Startzeit von dem
+   * Urlaub
+   *
    * @param githubname
    * @param tag
    * @param von
@@ -195,8 +202,9 @@ public class StudentService {
   }
 
   /**
-   * Nach einer Klausur-Aneldung werden alle Urlaube an dem Tag gelöscht, und neu hinzugefügt,
-   * so dass die Zeit zwiscen Klausur und Urlaub angepasst wird
+   * Nach einer Klausur-Aneldung werden alle Urlaube an dem Tag gelöscht, und neu hinzugefügt, so
+   * dass die Zeit zwiscen Klausur und Urlaub angepasst wird
+   *
    * @param githubname
    * @param klausur
    */
@@ -225,8 +233,10 @@ public class StudentService {
 
   private boolean isKlausurRegistrierbar(LocalDate datum, Klausur klausur) {
     return (klausur.getFreiStellungBis().isAfter(START_ZEIT))
-        && ((klausur.getFreiStellungBis().isBefore(END_ZEIT))||(klausur.getFreiStellungBis().equals(END_ZEIT)))
-        && ((klausur.getFreiStellungVon().isAfter(START_ZEIT)) || (klausur.getFreiStellungVon().equals(START_ZEIT)))
+        && ((klausur.getFreiStellungBis().isBefore(END_ZEIT)) || (klausur.getFreiStellungBis()
+        .equals(END_ZEIT)))
+        && ((klausur.getFreiStellungVon().isAfter(START_ZEIT)) || (klausur.getFreiStellungVon()
+        .equals(START_ZEIT)))
         && (klausur.getFreiStellungVon().isBefore(END_ZEIT))
         && isDatumInZukunft(klausur.getTag(), datum);
   }

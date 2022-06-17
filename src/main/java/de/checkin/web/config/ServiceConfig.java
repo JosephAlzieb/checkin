@@ -23,7 +23,8 @@ public class ServiceConfig {
   }
 
   @Bean
-  StudentService studentService(StudentRepository studentRepository, KlausurRepository klausurRepository,
+  StudentService studentService(StudentRepository studentRepository,
+      KlausurRepository klausurRepository,
       AuditLogRepository auditLogRepository) {
     return new StudentService(studentRepository, klausurRepository, auditLogRepository);
   }

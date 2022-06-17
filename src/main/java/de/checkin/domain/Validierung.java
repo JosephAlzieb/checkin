@@ -1,7 +1,10 @@
 package de.checkin.domain;
 
 
-import static de.checkin.domain.Zeit.*;
+import static de.checkin.domain.Zeit.DREISSIG;
+import static de.checkin.domain.Zeit.FUENFUNDVIERZIG;
+import static de.checkin.domain.Zeit.FUENFZEHN;
+import static de.checkin.domain.Zeit.NULL;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -17,6 +20,7 @@ public class Validierung {
 
   /**
    * prüft, ob der Tag am Wochenende liegt
+   *
    * @param tag
    * @return
    */
@@ -28,6 +32,7 @@ public class Validierung {
 
   /**
    * für ein Urlaub-Anmeldung sollte nur ganze Viertelstunden (d.h. 00, 15, 30 und 45) erlaubt sein
+   *
    * @param zeit
    * @return
    */
