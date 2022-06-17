@@ -1,0 +1,10 @@
+== Qualitätsanforderungen
+
+[cols="5%,20%,75%",frame="topbot",options="header"]
+|=======
+|Nr | Qualitätsmerkmal | Umsetzung
+|1  | Benutzerfreundlichkeit |  Sollte ein Benutzer etwas falsch machen, dann bekommt der Benutzer eine Aussagekräftige Fehlermeldung.
+|2  | Erweiterbarkeit | Wir haben oft unseren Code gerefactored, damit der Code einfach und Strukturiert bleibt. es soll auch einfach sein, neue Erweiterungen zu implementieren.
+|3  | Security | Um gute Security zu gewährleisten haben wir **Spring Security** verwendet.
+|4  | accessibility | Für die Personen mit Sehen-schwäche oder ohne Sehen-Kraft soll die Anwendung möglichst mit der Tastatur bedienbar sein.
+|=======

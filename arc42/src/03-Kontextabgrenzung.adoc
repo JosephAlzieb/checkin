@@ -1,0 +1,21 @@
+= Kontextabgrenzung
+
+== Fachliche Abgrenzung
+
+|=======
+|Titel|
+|Das System  | verwaltet die Fehlzeiten von Studierenden während des Praktikums
+|Studierende | während des Praktikums können Studierende bis zu 240 min. als Urlaub nehmen. auch wenn sie Klausuren schreiben müssen, dann können sie das Eintragen, und so werden Sie von der Anwesenheitspflicht befreit.
+|Tutor| Ein normaler Student mit erweiterter Rechte. sie Kontrollieren die Anwesenheit von Studierenden.
+|Klausur | wenn ein Student eine Klausur schreiben muss, dann muss diese eingetragen werden, dabei wird überprüft, ob das ein wirklich gültige Klausur ist, und so kriegt der Student frei an dem Tag, an dem die Klausur geschrieben wird.
+Die Klausur wird dann in der DB gespeichert, so dass andere Studierende diese nicht noch mal eintragen müssen, wenn sie die gleiche Klausur schreiben müssen
+|AuditLog | jede Änderung wird von der Anwendung protokolliert. wer, was, wann gemacht hat.
+|=======
+
+== Technische Abgrenzung
+
+|===
+|Titel|Protokoll und Detail
+|Datenbank JDBC| interner Service (nur im Docker Container erreichbar)
+|Hardware| Spezielle Hardware ist nicht nötig da die Plattform komplett über docker virtualisiert wird
+|===

@@ -1,0 +1,24 @@
+= Entwurfsentscheidungen
+
+== Architektur
+
+=== Onion Architektur
+
+wir haben uns für Onion-Architektur entschieden, da dies das Testing vereinfacht und ermöglicht eine bessere Kapselung der Geschäfts-Logik.
+Außerdem minimiert sie die Abhängigkeiten zwischen den verschiedenen Schichten, und hält die Anwendung erweiterbar.
+
+Die Onion-Architektur bietet uns Erweiterbarkeit, Skalierbarkeit.
+
+Unsere Modellierung hat klare Struktur und besteht im Wesentlichen aus Student, Klausur, und Urlaub.
+wir haben uns dazu entschieden, Student, und Kluasur als Aggregate-roots zu machen, denn angelegte Klausuren müssen für alle Studierende sichtbar sein Das Ziel unserer Modellierung war, die Applikation erweiterbar und flexibel zu halten.
+Aus diesen Gründen halten wir Onion-Architektur für die beste Architektur, um das Projekt langlebig zu machen.
+
+=== Vererbung
+
+Wir verwenden gezielt Vererbung, um die Skalierbarkeit weiterhin zu verbessern.
+Erweiterungen können so ohne großen Aufwand implementiert werden.
+
+=== Datenbank
+
+Im Development Prozess haben wir uns entschieden, die Funktionalität unserer Anwendung auf einer H2 Datenbank zu testen.
+Als Datenbank nutzen wir aber eine MariaDB-Datenbank, die mit Hilfe des docker-compose Files leicht gestartet werden kann.

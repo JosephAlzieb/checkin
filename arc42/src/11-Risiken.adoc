@@ -1,0 +1,7 @@
+= Risiken
+
+== Risiken und technische Schulden
+
+=== GitHub OAuth Security
+
+Sollten bei GitHub OAuth Security Probleme auftreten, dann sind wir offensichtlich auch betroffen.

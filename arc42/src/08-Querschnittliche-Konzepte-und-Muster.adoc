@@ -1,0 +1,18 @@
+= Querschnittliche Konzepte und Muster
+
+=== Security
+
+Damit wir uns das Anmelden vereinfachen, haben wir über den sogenannten OAuth2 Standard, GitHub als Single-Sign-On Dienst verwendet.
+Dafür logt man sich bei unserer Anwendung nicht selbst sein, sondern über einen Drittdienst in diesem Fall (GitHub)
+
+=== User Experience
+
+Nach der erfolgreichen Anmeldung wird der User an eine zentrale Übersicht für alle seine Aktionen weiter geleitet.
+Dies gilt sowohl für Studierende als auch für Dozenten.
+Außerdem kriegt der User nach einer erfolgreichen Anmeldung einen Link auf der Login-Seite angezeigt, der der User auf die Übersicht-Seite weiterleitet.
+
+alle Funktionen sind durch Buttons und Links leicht erreichbar.
+
+Sollte eine Urlaub- oder Klausur-Anmeldung nicht erfolgreich erfolgen, dann kriegt der User eine gut sichtbare Nachricht mit dem Grund angezeigt.
+und wenn eine Anmeldung erfolgreich erfolgt, dann kriegt der User auf der Übersicht-Seite einen Überblick über all seiner Anmeldungen sowohl für Klausur als auch für Urlaube
+

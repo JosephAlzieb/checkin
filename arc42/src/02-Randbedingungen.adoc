@@ -1,0 +1,37 @@
+= Randbedingungen
+
+== Organisatorische Randbedingungen
+
+|===
+| Randbedingung          | Hintergrund und Erläuterungen
+
+| Team                   | Marina Habashi, Nilufar Darvish Zadeh, Shokouh Ahmadi, Joseph Alzieb.
+
+| Zeitplan               | 3 Wochen (07.03.2022 - 25.03.2022)
+
+| Entwicklungswerkzeuge  | Intellij, Docker, Webbrowser, gradle, Discord, spring,
+
+| Versionsverwaltung     | GitHub, GitHub Actions
+|===
+
+=== Technische Randbedingungen
+
+|===
+| Randbedingung                                 | Hintergrund und Erläuterungen
+
+| Implementierung                               | in Java 17 als SpringBoot App
+
+|Ausführbar mit docker-compose up               | Grund: unabhängig von System und Konfiguration ausführbar
+|===
+
+=== Konventionen
+
+|===
+| Konvention    | Hintergrund und Erläuterungen
+
+| Dokumentation | arc42
+
+| Codequalität  | Wir benutzen GitHub Actions, und Spotbugs für Codequalität.
+
+| Sprache       | Deutsch
+|===

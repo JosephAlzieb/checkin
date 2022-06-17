@@ -1,0 +1,38 @@
+= Laufzeitsicht
+
+Die während der Laufzeit benötigten Daten werden den Views von den zuständigen Controllern übergeben.
+Diese greifen wiederum auf die jeweiligen Services bzw.
+Repositories zu, welche für die Logik und das Holen der gefragten Daten zuständig sind.
+
+=== User Anmeldung
+
+- Damit Studierende die Anwendung benutzen können, müssen sie als Erstes sich anmelden
+- Das geschieht über Github.
+- Es existiert ein gut sichtbarer "Login" Button, der die Seite zum Anmelden mit Github öffnet.
+- Nach der erfolgreichen Anmeldung wird der/die StudentIn auf eine Übersichtseite weitergeleitet, wo sie einen Überblick über ihre Fehlzeiten (Urlaube / Klausuren) mit dem übrigen Resturlaub.
+
+=== Klausur Eintragen/Anmelden
+
+- Der/Die StudentIn kann durch einen Klick auf Klausur-anmelden-Button auf eine Seite weiter geleitet werden, wor sie ihre Klausuren eintragen können.
+- Beim Eintragen einer Klausur muss der User darauf achten, dass der Name und der Id der Veranstaltung mit dem Namen und dem Id der Veranstaltung, die im Lsf steht, übereinstimmen, sonst kann die Klausur nicht gespeichert werden
+- Nachdem erfolgreichen Eintragen einer Klausur, wird diese in der DB gespeichert, und dann kann sich für sie anmelden.
+- Nach erfolgreichen Klausur-Anmeldung wird die Anmeldung in der DB gespeichert, und es wird alles auf der Übersicht-Seite angezeigt.
+- Studierende können ihre Klausuren bis ein Tag zuvor selber stornieren durch einen Klick auf den stornieren-Button.
+
+=== Urlaub Eintragen/Anmelden
+
+- Der/Die StudentIn kann durch einen Klick auf Urlaub-anmelden-Button auf eine Seite weiter geleitet werden, wor sie ihre eingeplante Urlaube eintragen können.
+- Dabei müssen bestimmte Regeln beachtet werden, wie z.b dass man nicht mehr als zwei Urlaube an einem Tag nehmen kann, und die Urlaube müssen am Beginn und Ende des Tages sein.
+- Nach erfolgreichen Urlaub-Anmeldung wird das alles in der DB gespeichert, und es wird alles auf der Übersicht-Seite gezeigt.
+- Studierende können ihre Urlaube bis ein Tag zuvor selber stornieren durch einen Klick auf den stornieren-Button.
+
+=== Klusur und Urlaub
+
+- sollte der User nach einer Urlaub-Anmeldung sich für eine Klausur an demselben Tag anmelden, dann wird der User zur Klausur-Zeit freigestellt, und der Urlaub storniert oder so angepasst, dass der User nur wegen der Klausur freigestellt ist.
+Resturlaub wird auch so angepasst, dass keine Zeit während einer Klausur-Freistellung abgezogen wird
+- Das geht auch umgekehrt, dh. wenn man sich zuerst für die Klausur anmeldet, und dann Urlaub einträgt, wird die Zeit automatisch angepasst.
+
+=== Auditierbarkeit
+
+- Alle Änderungen wie z.b (Urlaub-Anmeldung/Stornierung, Klausur-Anmeldung/Stornierung, LogIn) werden von der Anwendung protokolliert, und in der DB gespeichert.
+- Das Audit-Log ist nur für Organisator:innen und Tutoren sichtbar unter /auditlog.
